@@ -1,6 +1,7 @@
 D:\Programming\identityAuthentication\IdentityAuthentication\src\Domain\bin\Debug\net10.0\Domain.deps.json
 D:\Programming\identityAuthentication\IdentityAuthentication\src\Domain\bin\Debug\net10.0\Domain.dll
 D:\Programming\identityAuthentication\IdentityAuthentication\src\Domain\bin\Debug\net10.0\Domain.pdb
+D:\Programming\identityAuthentication\IdentityAuthentication\src\Domain\obj\Debug\net10.0\Domain.csproj.AssemblyReference.cache
 D:\Programming\identityAuthentication\IdentityAuthentication\src\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\Programming\identityAuthentication\IdentityAuthentication\src\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
 D:\Programming\identityAuthentication\IdentityAuthentication\src\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
