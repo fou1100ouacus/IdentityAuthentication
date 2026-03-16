@@ -6,7 +6,7 @@
 // app.Run();
 
 using Infrastructure.Data;
-// using Infrastructure.RealTime;
+//using Infrastructure.RealTime;
 
 using Scalar.AspNetCore;
 
@@ -43,7 +43,7 @@ if (app.Environment.IsDevelopment())
 
     app.MapScalarApiReference();
 
-   // await app.InitialiseDatabaseAsync();
+   await app.InitialiseDatabaseAsync();
 
     app.UseWebAssemblyDebugging();
 }
@@ -52,7 +52,7 @@ else
     app.UseHsts();
 }
 
-//app.UseCoreMiddlewares(builder.Configuration);
+app.UseCoreMiddlewares(builder.Configuration);
 
 app.MapControllers();
 
