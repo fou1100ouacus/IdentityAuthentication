@@ -34,7 +34,7 @@ if (app.Environment.IsDevelopment())
 
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/openapi/v1.json", "MechanicShop API V1");
+        options.SwaggerEndpoint("/openapi/v1.json", " Authentication API V1");
 
         options.EnableDeepLinking();
         options.DisplayRequestDuration();

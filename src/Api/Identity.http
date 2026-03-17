@@ -1,4 +1,21 @@
-@baseUrl = https://localhost:7007/identity
+@baseUrl = https://localhost:7114/identity
+
+### Register new user
+POST {{baseUrl}}/register
+Content-Type: application/json
+{
+    "email": "mohamed23@localhost",
+    "password": "Test1234!",
+    "confirmPassword": "Test1234!"
+}
+###
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "email": "pm@localhost",
+    "password": "pm@localhost"
+}
 
 ### Login As Manager
 POST {{baseUrl}}/token/generate

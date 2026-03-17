@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oZEtcT0GCYk=",
+  "dgSpecHash": "BgTpEIOJ8Sk=",
   "success": true,
   "projectFilePath": "D:\\Programming\\identityAuthentication\\IdentityAuthentication\\src\\Api\\Api.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.caching.hybrid\\10.4.0\\microsoft.extensions.caching.hybrid.10.4.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.dependencymodel\\10.0.5\\microsoft.extensions.dependencymodel.10.0.5.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.hosting\\10.0.5\\microsoft.extensions.hosting.10.0.5.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.identity.core\\10.0.5\\microsoft.extensions.identity.core.10.0.5.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.logging\\10.0.5\\microsoft.extensions.logging.10.0.5.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.identity.client\\4.73.1\\microsoft.identity.client.4.73.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.73.1\\microsoft.identity.client.extensions.msal.4.73.1.nupkg.sha512",
@@ -103,6 +104,18 @@
       "warningLevel": 1,
       "filePath": "D:\\Programming\\identityAuthentication\\IdentityAuthentication\\src\\Api\\Api.csproj",
       "libraryId": "Microsoft.Extensions.Hosting",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1510",
+      "level": "Warning",
+      "message": "PackageReference Microsoft.Extensions.Identity.Core will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
+      "projectPath": "D:\\Programming\\identityAuthentication\\IdentityAuthentication\\src\\Api\\Api.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\Programming\\identityAuthentication\\IdentityAuthentication\\src\\Api\\Api.csproj",
+      "libraryId": "Microsoft.Extensions.Identity.Core",
       "targetGraphs": [
         "net10.0"
       ]

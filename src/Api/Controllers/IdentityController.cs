@@ -3,6 +3,7 @@ using System.Security.Claims;
 using Asp.Versioning;
 
 using Application.Features.Identity;
+using Application.Features.Identity.Commands.RegisterUser;
 using Application.Features.Identity.Dtos;
 using Application.Features.Identity.Queries.GenerateTokens;
 using Application.Features.Identity.Queries.GetUserInfo;
@@ -64,6 +65,48 @@ public sealed class IdentityController(ISender sender) : ApiController
 
         var result = await sender.Send(new GetUserByIdQuery(userId), ct);
 
+        return result.Match(
+            response => Ok(response),
+            Problem);
+    }
+
+// Api/Controllers/IdentityController.cs
+
+[HttpPost("register")]
+[ApiVersionNeutral]
+[ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
+[ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+[EndpointSummary("Registers a new user (self sign-up)")]
+[EndpointDescription("Creates a new user account with email and password. Email confirmation is not required yet.")]
+public async Task<IActionResult> Register(
+    [FromBody] RegisterUserRequest request,
+    [FromServices] ISender sender,
+    CancellationToken ct)
+{
+    var command = new RegisterUserCommand(
+        request.Email,
+        request.Password,
+        request.ConfirmPassword);
+
+    var result = await sender.Send(command, ct);
+
+    return result.Match(
+        userId => Created($"/identity/current-user/claims", userId),   // or return 200 OK with userId
+        Problem);
+}
+
+
+[HttpPost("login")]                        
+[AllowAnonymous]
+    [ProducesResponseType(typeof(TokenResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [EndpointSummary("Generates an access and refresh token for a valid user.")]
+    [EndpointDescription("Authenticates a user using provided credentials and returns a JWT token pair.")]
+    [EndpointName("login")]
+    public async Task<IActionResult> ExtractTokenFromLogin([FromBody] GenerateTokenQuery request, CancellationToken ct)
+    {
+        var result = await sender.Send(request, ct);
         return result.Match(
             response => Ok(response),
             Problem);
