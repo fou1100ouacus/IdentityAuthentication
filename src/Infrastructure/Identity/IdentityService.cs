@@ -78,4 +78,34 @@ public class IdentityService(
 
         return user?.UserName;
     }
+
+    // Infrastructure.Identity / IdentityService.cs
+
+// ... existing methods ...
+
+public async Task<Result<string>> RegisterUserAsync(string email, string password, CancellationToken ct = default)
+{
+    var user = new AppUser
+    {
+        UserName = email,
+        Email = email,
+        EmailConfirmed = false   // ← will be set to true after confirmation flow
+    };
+
+    var result = await _userManager.CreateAsync(user, password);
+
+    if (!result.Succeeded)
+    {
+        var errors = result.Errors
+            .Select(e => Error.Validation(e.Code ?? "Identity_Error", e.Description))
+            .ToList();
+
+        return errors;
+    }
+
+    // Optional default role
+    // await _userManager.AddToRoleAsync(user, "Customer");
+
+    return user.Id;
+}
 }
